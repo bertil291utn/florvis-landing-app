@@ -1,6 +1,6 @@
 "use client";
 
-import { Download, Check, Smartphone } from 'lucide-react';
+import { Download, Check, Smartphone, Play, ArrowDownToLine } from 'lucide-react';
 
 export default function DownloadCTA() {
   return (
@@ -48,12 +48,12 @@ export default function DownloadCTA() {
                   href="#" 
                   className="btn-primary w-full sm:w-auto flex items-center justify-center gap-2"
                 >
-                  <Download className="w-5 h-5" />
-                  <span>Descargar APK para Android</span>
+                  <ArrowDownToLine className="w-8 h-8" />
+                  <span>Descargar para Android</span>
                 </a>
-                <p className="text-white/60 text-sm">
+                {/* <p className="text-white/60 text-sm">
                   Versión actual: 1.2.0 | Tamaño: 12.4 MB
-                </p>
+                </p> */}
               </div>
             </div>
             
