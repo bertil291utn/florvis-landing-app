@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, Flower } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import Image from 'next/image';
 
 const NAV_LINKS = [
   { name: 'Inicio', href: '#home' },
@@ -42,7 +43,13 @@ export default function Navbar() {
     >
       <div className="container-custom flex justify-between items-center">
         <Link href="#home" className="flex items-center gap-2">
-          <Flower className="h-8 w-8 text-secondary" />
+          <Image 
+            src="/logo.png" 
+            alt="Florvis Logo" 
+            width={32} 
+            height={32} 
+            className="h-8 w-8"
+          />
           <span className="text-xl font-bold text-white">Florvis</span>
         </Link>
 
