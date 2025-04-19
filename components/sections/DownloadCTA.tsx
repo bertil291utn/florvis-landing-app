@@ -13,7 +13,7 @@ export default function DownloadCTA() {
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
                 Pruebe Florvis y empiece a ver su finca como una empresa
               </h2>
-              
+
               <div className="mb-8">
                 <ul className="space-y-4">
                   <li className="flex items-start">
@@ -42,21 +42,25 @@ export default function DownloadCTA() {
                   </li>
                 </ul>
               </div>
-              
+
               <div className="space-y-4">
-                <a 
-                  href="#" 
+                <a
+                  href={process.env.NEXT_PUBLIC_APK_URL}
+                  download
                   className="btn-primary w-full sm:w-auto flex items-center justify-center gap-2"
-                >
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >
+
                   <ArrowDownToLine className="w-8 h-8" />
                   <span>Descargar para Android</span>
                 </a>
-                {/* <p className="text-white/60 text-sm">
-                  Versión actual: 1.2.0 | Tamaño: 12.4 MB
-                </p> */}
+                <p className="text-white/60 text-sm">
+                  Versión actual: {process.env.NEXT_PUBLIC_APK_URL_VERSION}
+                </p>
               </div>
             </div>
-            
+
             {/* Right side - Phone mockup */}
             <div className="relative hidden md:flex items-center justify-center bg-secondary/30 p-8">
               <div className="relative w-[240px] h-[480px] bg-primary rounded-[32px] border-4 border-white/10 shadow-lg overflow-hidden">
@@ -64,7 +68,7 @@ export default function DownloadCTA() {
                 <div className="absolute top-0 left-0 right-0 h-8 flex items-center justify-center">
                   <div className="w-20 h-4 bg-black rounded-b-lg"></div>
                 </div>
-                
+
                 {/* Sample app screen */}
                 <div className="bg-white h-full pt-10 px-3">
                   <div className="h-10 bg-secondary flex items-center justify-between px-3 rounded-t-lg">

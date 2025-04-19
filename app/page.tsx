@@ -8,6 +8,8 @@ import Testimonials from '@/components/sections/Testimonials';
 import Footer from '@/components/layout/Footer';
 import { ThemeProvider } from '@/components/theme/ThemeProvider';
 
+export const revalidate = process.env.NEXT_PUBLIC_REVALIDATE_TIME;
+
 export default function Home() {
   return (
     <ThemeProvider attribute="class" defaultTheme="light">

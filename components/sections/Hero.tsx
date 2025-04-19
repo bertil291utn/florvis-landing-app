@@ -71,8 +71,11 @@ export default function Hero() {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
             <a 
-              href="#download" 
+              href={process.env.NEXT_PUBLIC_APK_URL}
+              download
               className="btn-primary flex items-center gap-2 w-full sm:w-auto"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <Play className="w-5 h-5" />
               <span>Descargar para Android</span>
