@@ -10,6 +10,45 @@ export const metadata: Metadata = {
   icons: {
     icon: '/favicon.ico',
   },
+  keywords: [
+    // Location-specific keywords (Spanish)
+    'floricolas Cayambe',
+    'flores Cayambe',
+    'rosas Cayambe',
+    'producción de rosas Cayambe',
+    'cultivo de rosas Ecuador',
+    
+    // Business-specific keywords (Spanish)
+    'gestión de florícolas',
+    'software florícola',
+    'manejo de rosas Ecuador',
+    'producción de flores Ecuador',
+    'sistema gestión florícola',
+    
+    // Technical/Professional terms (Spanish)
+    'control de producción flores',
+    'administración florícola',
+    'software para floricultura',
+    'app para floricultores',
+    
+    // English keywords for international reach
+    'Ecuador roses',
+    'Cayambe rose farms',
+    'Ecuador flower production',
+    'rose farm management',
+    'flower farm software Ecuador',
+    
+    // Industry-specific terms
+    'floricultura Ecuador',
+    'exportación de rosas',
+    'rose export Ecuador',
+    'flower farm management system'
+  ],
+  creator:'Garage Designs',
+  authors:[
+    {name:'Bertil Tandayamo',url:'https://www.bertiltandayamo.me/'},
+    {name:'Garage Designs',url:'https://www.bertiltandayamo.me/'}
+    ]
 };
 
 export default function RootLayout({
