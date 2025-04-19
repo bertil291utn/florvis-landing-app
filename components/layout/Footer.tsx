@@ -91,33 +91,13 @@ export default function Footer() {
             <h3 className="text-lg font-semibold mb-4">Contacto</h3>
             <ul className="space-y-3">
               <li className="flex items-center gap-2">
-                <Mail className="h-5 w-5 text-secondary" />
-                <a href="mailto:info@florvis.com" className="text-white/70 hover:text-secondary transition-colors">
-                  info@florvis.com
-                </a>
-              </li>
-              <li className="flex items-center gap-2">
                 <Phone className="h-5 w-5 text-secondary" />
-                <a href="tel:+001234567890" className="text-white/70 hover:text-secondary transition-colors">
-                  +00 123 456 7890
+                <a target='_blank' href="https://wa.me/593979626724?text=Quiero mas informacion de la app" className="text-white/70 hover:text-secondary transition-colors">
+                  +593979626724
                 </a>
               </li>
             </ul>
 
-            {/* Newsletter */}
-            <div className="mt-6">
-              <h4 className="text-sm font-medium mb-2">Suscríbase a nuestro boletín</h4>
-              <div className="flex">
-                <input 
-                  type="email" 
-                  placeholder="Su email" 
-                  className="bg-white/10 rounded-l-lg p-2 text-white placeholder:text-white/50 flex-1 focus:outline-none focus:ring-1 focus:ring-secondary border border-transparent"
-                />
-                <button className="bg-secondary hover:bg-secondary/90 p-2 rounded-r-lg">
-                  <Send className="h-5 w-5 text-white" />
-                </button>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -128,7 +108,7 @@ export default function Footer() {
           </p>
           <div className="mt-4 md:mt-0">
             <p className="text-white/60 text-sm">
-              Desarrollado con 🌹 para los productores de flores
+              Ingenieria desarrollada por  🛜 Garage Design
             </p>
           </div>
         </div>

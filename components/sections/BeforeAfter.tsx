@@ -84,11 +84,6 @@ export default function BeforeAfter() {
           </div>
         </div>
 
-        <div className="flex justify-center mt-12">
-          <div className="flex items-center justify-center">
-            <ArrowRight className="h-10 w-10 text-secondary animate-pulse" />
-          </div>
-        </div>
       </div>
     </section>
   );

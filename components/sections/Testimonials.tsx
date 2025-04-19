@@ -97,10 +97,7 @@ export default function Testimonials() {
         {/* Quote */}
         <div className="bg-primary/5 p-8 rounded-xl text-center max-w-3xl mx-auto mb-16">
           <p className="text-xl md:text-2xl text-primary italic font-light mb-4">
-            "Florvis är konsten att leva som en blomma – öppen, vacker och resilient."
-          </p>
-          <p className="text-gray-700">
-            (Florvis es el arte de vivir como una flor: abierta, hermosa y resistente)
+            "Florvis es el arte de vivir como una flor - abierta, hermosa y resistente"
           </p>
         </div>
 
