@@ -70,8 +70,8 @@ export default function Hero() {
           
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
-            <a 
-              href={process.env.NEXT_PUBLIC_APK_URL}
+            {/* <a 
+              href={process.env.NEXT_PUBLIC_APP_URL}
               download
               className="btn-primary flex items-center gap-2 w-full sm:w-auto"
               target="_blank"
@@ -86,7 +86,15 @@ export default function Hero() {
             >
               <Apple className="w-5 h-5" />
               <span>Muy pronto en App Store</span>
-            </button>
+            </button> */}
+            <a 
+              href={process.env.NEXT_PUBLIC_APP_URL}
+              className="btn-primary flex items-center gap-2 w-full sm:w-auto justify-center"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>Probar sistema</span>
+            </a>
           </div>
         </div>
         

@@ -44,8 +44,8 @@ export default function DownloadCTA() {
               </div>
 
               <div className="space-y-4">
-                <a
-                  href={process.env.NEXT_PUBLIC_APK_URL}
+                {/* <a
+                  href={process.env.NEXT_PUBLIC_APP_URL}
                   download
                   className="btn-primary w-full sm:w-auto flex items-center justify-center gap-2"
                   target="_blank"
@@ -57,7 +57,15 @@ export default function DownloadCTA() {
                 </a>
                 <p className="text-white/60 text-sm">
                   Versión actual: {process.env.NEXT_PUBLIC_APK_URL_VERSION}
-                </p>
+                </p> */}
+                <a
+                  href={process.env.NEXT_PUBLIC_APP_URL}
+                  className="btn-primary flex items-center gap-2 w-full sm:w-auto justify-center"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span>Probar sistema</span>
+                </a>
               </div>
             </div>
 
