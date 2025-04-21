@@ -87,7 +87,7 @@ export default function Hero() {
               <Apple className="w-5 h-5" />
               <span>Muy pronto en App Store</span>
             </button> */}
-            <a 
+            <a  
               href={process.env.NEXT_PUBLIC_APP_URL}
               className="btn-primary flex items-center gap-2 w-full sm:w-auto justify-center"
               target="_blank"
