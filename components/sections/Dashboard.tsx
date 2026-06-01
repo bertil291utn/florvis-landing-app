@@ -84,7 +84,7 @@ export default function Dashboard() {
               <em className="text-secondary not-italic">en una pantalla.</em>
             </h2>
             <p
-              className="text-white/45 max-w-xs leading-relaxed text-sm section-reveal"
+              className="text-white max-w-xs leading-relaxed text-sm section-reveal"
               style={{ transitionDelay: '200ms' }}
             >
               Visualice información relevante con gráficos claros y datos actualizados en tiempo real.

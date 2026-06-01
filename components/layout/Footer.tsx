@@ -106,9 +106,9 @@ export default function Footer() {
           <p className="text-white/30 text-xs tracking-wide">
             &copy; {CURRENT_YEAR} Florvis. Todos los derechos reservados.
           </p>
-          <p className="text-white/30 text-xs tracking-wide">
+          <a href="https://www.bertiltandayamo.dev/" target="_blank" rel="noopener noreferrer" className="text-white/30 text-xs tracking-wide">
             Ingeniería desarrollada por Garage Design
-          </p>
+          </a>
         </div>
       </div>
     </footer>

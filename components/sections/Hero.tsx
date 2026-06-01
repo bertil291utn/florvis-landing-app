@@ -50,7 +50,7 @@ export default function Hero() {
 
         {/* Subtitle */}
         <p
-          className={`text-white/65 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-12 transition-all duration-700 delay-300 ${
+          className={`text-white text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-12 transition-all duration-700 delay-300 ${
             mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}
         >
