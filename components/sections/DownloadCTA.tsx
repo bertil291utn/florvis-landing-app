@@ -1,109 +1,116 @@
 "use client";
 
-import { Download, Check, Smartphone, Play, ArrowDownToLine } from 'lucide-react';
+import { useEffect, useRef } from 'react';
+import { Check, Smartphone } from 'lucide-react';
+
+const BENEFITS = [
+  'Tome decisiones más inteligentes',
+  'Aumente su productividad',
+  'Ahorre tiempo en tareas administrativas',
+  'Fácil, clara y efectiva',
+];
 
 export default function DownloadCTA() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      },
+      { threshold: 0.08 }
+    );
+
+    const els = sectionRef.current?.querySelectorAll('.section-reveal') ?? [];
+    els.forEach((el) => observer.observe(el));
+    return () => els.forEach((el) => observer.unobserve(el));
+  }, []);
+
   return (
-    <section id="download" className="section-padding bg-secondary/10">
+    <section id="download" className="section-padding bg-cream" ref={sectionRef}>
       <div className="container-custom">
-        <div className="bg-primary rounded-2xl shadow-xl overflow-hidden">
-          <div className="grid grid-cols-1 md:grid-cols-2">
-            {/* Left side - Text content */}
-            <div className="p-8 md:p-12 lg:p-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                Pruebe Florvis y empiece a ver su finca como una empresa
+        <div className="bg-primary relative overflow-hidden">
+          {/* Rose glow accents */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] rounded-full bg-secondary/8 blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 right-0 w-64 h-64 rounded-full bg-secondary/10 blur-2xl pointer-events-none" />
+
+          <div className="relative grid grid-cols-1 md:grid-cols-2">
+            {/* Left — Text */}
+            <div className="p-10 md:p-16 lg:p-20">
+              <p className="eyebrow mb-6 section-reveal">Pruebe Florvis</p>
+              <h2
+                className="font-display text-4xl md:text-5xl font-bold text-white leading-tight mb-10 section-reveal"
+                style={{ transitionDelay: '100ms' }}
+              >
+                Empiece a ver su finca como una{' '}
+                <em className="text-secondary not-italic">empresa.</em>
               </h2>
 
-              <div className="mb-8">
-                <ul className="space-y-4">
-                  <li className="flex items-start">
-                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-secondary flex items-center justify-center mr-3">
-                      <Check className="h-4 w-4 text-white" />
-                    </div>
-                    <span className="text-white/90">Tome decisiones más inteligentes</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-secondary flex items-center justify-center mr-3">
-                      <Check className="h-4 w-4 text-white" />
-                    </div>
-                    <span className="text-white/90">Aumente su productividad</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-secondary flex items-center justify-center mr-3">
-                      <Check className="h-4 w-4 text-white" />
-                    </div>
-                    <span className="text-white/90">Ahorre tiempo en tareas administrativas</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-secondary flex items-center justify-center mr-3">
-                      <Check className="h-4 w-4 text-white" />
-                    </div>
-                    <span className="text-white/90">Fácil, clara, efectiva</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="space-y-4">
-                {/* <a
-                  href={process.env.NEXT_PUBLIC_APP_URL}
-                  download
-                  className="btn-primary w-full sm:w-auto flex items-center justify-center gap-2"
-                  target="_blank"
-                  rel="noopener noreferrer"
+              <ul className="space-y-4 mb-12">
+                {BENEFITS.map((benefit, index) => (
+                  <li
+                    key={benefit}
+                    className="flex items-center gap-3 section-reveal"
+                    style={{ transitionDelay: `${200 + index * 80}ms` }}
                   >
+                    <span className="w-5 h-5 rounded-full border border-secondary/50 flex items-center justify-center flex-shrink-0">
+                      <Check className="h-3 w-3 text-secondary" />
+                    </span>
+                    <span className="text-white/70 text-sm">{benefit}</span>
+                  </li>
+                ))}
+              </ul>
 
-                  <ArrowDownToLine className="w-8 h-8" />
-                  <span>Descargar para Android</span>
-                </a>
-                <p className="text-white/60 text-sm">
-                  Versión actual: {process.env.NEXT_PUBLIC_APK_URL_VERSION}
-                </p> */}
-                <a
-                  href={process.env.NEXT_PUBLIC_APP_URL}
-                  className="btn-primary flex items-center gap-2 w-full sm:w-auto justify-center"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span>Probar sistema</span>
-                </a>
-              </div>
+              <a
+                href={process.env.NEXT_PUBLIC_APP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary inline-flex items-center gap-2 section-reveal"
+                style={{ transitionDelay: '520ms' }}
+              >
+                Probar sistema
+              </a>
             </div>
 
-            {/* Right side - Phone mockup */}
-            <div className="relative hidden md:flex items-center justify-center bg-secondary/30 p-8">
-              <div className="relative w-[240px] h-[480px] bg-primary rounded-[32px] border-4 border-white/10 shadow-lg overflow-hidden">
+            {/* Right — Phone mockup */}
+            <div className="hidden md:flex items-center justify-center py-16 px-8 border-l border-white/8">
+              <div className="relative w-[200px] h-[400px]">
                 {/* Phone frame */}
-                <div className="absolute top-0 left-0 right-0 h-8 flex items-center justify-center">
-                  <div className="w-20 h-4 bg-black rounded-b-lg"></div>
-                </div>
-
-                {/* Sample app screen */}
-                <div className="bg-white h-full pt-10 px-3">
-                  <div className="h-10 bg-secondary flex items-center justify-between px-3 rounded-t-lg">
-                    <span className="text-white text-xs font-medium">Florvis</span>
-                    <Smartphone className="h-4 w-4 text-white" />
+                <div className="absolute inset-0 rounded-[2rem] border border-white/15 bg-white/5 backdrop-blur-sm" />
+                {/* Notch */}
+                <div className="absolute top-4 left-1/2 -translate-x-1/2 w-16 h-4 bg-primary rounded-b-lg" />
+                {/* Screen */}
+                <div className="absolute top-10 left-3 right-3 bottom-4 rounded-[1.25rem] overflow-hidden bg-cream">
+                  {/* App bar */}
+                  <div className="h-9 bg-secondary/80 flex items-center justify-between px-3">
+                    <span className="text-white text-[10px] font-semibold tracking-wide">Florvis</span>
+                    <Smartphone className="h-3 w-3 text-white/70" />
                   </div>
-                  <div className="bg-gray-100 p-3 flex-1 h-[calc(100%-40px)] rounded-b-lg">
-                    {/* Sample app content */}
-                    <div className="bg-white rounded-lg shadow-sm p-2 mb-2">
-                      <div className="h-2 bg-gray-200 rounded w-3/4 mb-1"></div>
-                      <div className="h-2 bg-gray-200 rounded w-1/2"></div>
+                  {/* App content */}
+                  <div className="p-2.5 space-y-2">
+                    <div className="bg-white rounded-lg p-2 shadow-sm">
+                      <div className="h-1.5 bg-primary/10 rounded w-3/4 mb-1.5" />
+                      <div className="h-1.5 bg-primary/10 rounded w-1/2" />
                     </div>
-                    <div className="bg-white rounded-lg shadow-sm p-2 mb-2">
-                      <div className="h-20 bg-secondary/20 rounded mb-2"></div>
-                      <div className="h-2 bg-gray-200 rounded w-3/4 mb-1"></div>
-                      <div className="h-2 bg-gray-200 rounded w-1/2"></div>
+                    <div className="bg-white rounded-lg p-2 shadow-sm">
+                      <div className="h-14 bg-secondary/15 rounded mb-2" />
+                      <div className="h-1.5 bg-primary/10 rounded w-3/4 mb-1.5" />
+                      <div className="h-1.5 bg-primary/10 rounded w-2/3" />
                     </div>
-                    <div className="flex space-x-2 mb-2">
-                      <div className="bg-white rounded-lg shadow-sm p-2 flex-1">
-                        <div className="h-10 bg-primary/10 rounded"></div>
+                    <div className="grid grid-cols-2 gap-1.5">
+                      <div className="bg-white rounded-lg p-2 shadow-sm">
+                        <div className="h-8 bg-primary/8 rounded" />
                       </div>
-                      <div className="bg-white rounded-lg shadow-sm p-2 flex-1">
-                        <div className="h-10 bg-secondary/20 rounded"></div>
+                      <div className="bg-white rounded-lg p-2 shadow-sm">
+                        <div className="h-8 bg-secondary/15 rounded" />
                       </div>
                     </div>
                   </div>
                 </div>
+                {/* Home indicator */}
+                <div className="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-10 h-1 bg-white/20 rounded-full" />
               </div>
             </div>
           </div>

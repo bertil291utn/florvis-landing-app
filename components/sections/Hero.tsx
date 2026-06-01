@@ -1,105 +1,125 @@
 "use client";
 
 import { useEffect, useState, useRef } from 'react';
-import { PlaySquare, AppWindow, Apple, Play } from 'lucide-react';
 
 export default function Hero() {
-  const [isVisible, setIsVisible] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    setIsVisible(true);
+    setMounted(true);
   }, []);
 
   const handlePlayClick = () => {
     setIsPlaying(true);
-    if (videoRef.current) {
-      videoRef.current.play();
-    }
+    videoRef.current?.play();
   };
 
   return (
-    <section 
-      id="home" 
-      className="relative min-h-screen flex items-center justify-center bg-hero-pattern bg-cover bg-center pt-16"
+    <section
+      id="home"
+      className="relative min-h-screen flex flex-col items-center justify-center bg-hero-pattern overflow-hidden pt-24 pb-16"
     >
-      <div className="container-custom text-center pt-4 pb-4">
-        <div className={`space-y-8 max-w-4xl mx-auto transition-all duration-700 ${isVisible ? 'opacity-100' : 'opacity-0 translate-y-10'}`}>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
-            Maneje su finca como un{" "}
-            <span className="text-secondary">verdadero empresario.</span>
-          </h1>
-          
-          <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto">
-            Descubra qué variedad de rosa le da mejores resultados, dónde está gastando más y cómo puede producir mejor.
-            <br className="hidden md:block" />
-            <strong>Toda la información clara, sin complicaciones.</strong>
-          </p>
-          
-          {/* Video section */}
-          <div className="relative w-full max-w-3xl mx-auto mt-8 rounded-xl overflow-hidden shadow-2xl">
-            {!isPlaying ? (
-              <div className="aspect-video bg-primary bg-opacity-60 flex items-center justify-center border border-white/20 backdrop-blur-sm cursor-pointer" onClick={handlePlayClick}>
-                <div className="text-white text-center">
-                  <div className="animate-pulse bg-secondary/20 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
-                    <div className="w-16 h-16 rounded-full bg-secondary flex items-center justify-center">
-                      <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none">
-                        <path d="M8 5V19L19 12L8 5Z" fill="currentColor" />
-                      </svg>
-                    </div>
-                  </div>
-                  <p className="text-lg font-medium">Ver beneficios</p>
-                <p className="text-white/70 text-sm">(Haga clic para reproducir)</p>
-         
-                </div>
-              </div>
-            ) : (
-              <video
-                ref={videoRef}
-                className="w-full"
-                controls
-                playsInline
-                src="/intro.webm"
-              >
-                <source src="/intro.webm" type="video/webm" />
-                Tu navegador no soporta la reproducción de video.
-              </video>
-            )}
-          </div>
-          
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
-            {/* <a 
-              href={process.env.NEXT_PUBLIC_APP_URL}
-              download
-              className="btn-primary flex items-center gap-2 w-full sm:w-auto"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Play className="w-5 h-5" />
-              <span>Descargar para Android</span>
-            </a>
-            <button 
-              className="btn-secondary flex items-center gap-2 w-full sm:w-auto opacity-80"
-              disabled
-            >
-              <Apple className="w-5 h-5" />
-              <span>Muy pronto en App Store</span>
-            </button> */}
-            <a  
-              href={process.env.NEXT_PUBLIC_APP_URL}
-              className="btn-primary flex items-center gap-2 w-full sm:w-auto justify-center"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span>Probar sistema</span>
-            </a>
-          </div>
+      {/* Decorative rose circles */}
+      <div className="absolute top-1/4 right-[8%] w-64 h-64 rounded-full border border-secondary/15 pointer-events-none" />
+      <div className="absolute top-1/4 right-[8%] w-44 h-44 rounded-full border border-secondary/20 pointer-events-none" style={{ top: 'calc(25% + 40px)', right: 'calc(8% + 40px)' }} />
+      <div className="absolute bottom-1/4 left-[6%] w-48 h-48 rounded-full border border-secondary/10 pointer-events-none" />
+
+      <div className="container-custom w-full text-center">
+        {/* Eyebrow */}
+        <div
+          className={`flex items-center justify-center gap-4 mb-10 transition-all duration-700 delay-100 ${
+            mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+          }`}
+        >
+          <span className="h-px w-12 bg-secondary/60 block" />
+          <span className="eyebrow">Sistema de Gestión Florícola</span>
+          <span className="h-px w-12 bg-secondary/60 block" />
         </div>
-        
-        {/* Scroll indicator */}
+
+        {/* Headline */}
+        <h1
+          className={`font-display text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight max-w-4xl mx-auto mb-8 transition-all duration-700 delay-200 ${
+            mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+          }`}
+        >
+          Maneje su finca como un{' '}
+          <em className="text-secondary not-italic">verdadero empresario.</em>
+        </h1>
+
+        {/* Subtitle */}
+        <p
+          className={`text-white/65 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-12 transition-all duration-700 delay-300 ${
+            mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+          }`}
+        >
+          Descubra qué variedad de rosa le da mejores resultados, dónde está gastando más
+          y cómo puede producir mejor. Toda la información clara, sin complicaciones.
+        </p>
+
+        {/* CTAs */}
+        <div
+          style={{ transitionDelay: '400ms' }}
+          className={`flex flex-col sm:flex-row items-center justify-center gap-4 mb-20 transition-all duration-700 ${
+            mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+          }`}
+        >
+          <a
+            href={process.env.NEXT_PUBLIC_APP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary w-full sm:w-auto"
+          >
+            Probar sistema
+          </a>
+          <a href="#features" className="btn-outline w-full sm:w-auto">
+            Ver funcionalidades
+          </a>
+        </div>
+
+        {/* Video */}
+        <div
+          className={`relative w-full max-w-3xl mx-auto transition-all duration-700 delay-500 ${
+            mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
+          {/* Elegant frame */}
+          <div className="absolute -inset-px border border-secondary/25 rounded-sm pointer-events-none z-10" />
+          <div className="absolute -inset-3 border border-white/5 rounded-sm pointer-events-none" />
+
+          {!isPlaying ? (
+            <button
+              onClick={handlePlayClick}
+              className="aspect-video w-full bg-primary/60 border border-white/10 flex items-center justify-center group relative overflow-hidden"
+              aria-label="Reproducir video"
+            >
+              <div className="absolute inset-0 bg-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="text-center z-10">
+                <div className="w-16 h-16 rounded-full border border-secondary/50 flex items-center justify-center mx-auto mb-5 group-hover:border-secondary transition-colors duration-300 group-hover:scale-105 transition-transform">
+                  <svg className="w-6 h-6 text-secondary ml-1" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8 5V19L19 12L8 5Z" />
+                  </svg>
+                </div>
+                <p className="text-white/80 text-sm tracking-widest uppercase font-medium">Ver beneficios</p>
+              </div>
+            </button>
+          ) : (
+            <video
+              ref={videoRef}
+              className="w-full aspect-video"
+              controls
+              playsInline
+              src="/intro.webm"
+            >
+              <source src="/intro.webm" type="video/webm" />
+            </video>
+          )}
+        </div>
       </div>
+
+      {/* Bottom fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-primary/40 to-transparent pointer-events-none" />
     </section>
   );
 }

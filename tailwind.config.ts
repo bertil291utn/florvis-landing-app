@@ -9,6 +9,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        display: ['var(--font-display)', 'Georgia', 'serif'],
+        sans: ['var(--font-body)', 'system-ui', 'sans-serif'],
+      },
       colors: {
         primary: {
           DEFAULT: '#1f1d3e',
@@ -18,6 +22,7 @@ const config: Config = {
           DEFAULT: '#dc84a4',
           foreground: '#ffffff',
         },
+        cream: '#faf8f5',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {
@@ -55,7 +60,7 @@ const config: Config = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'hero-pattern': 'linear-gradient(to bottom, rgba(31, 29, 62, 0.9), rgba(31, 29, 62, 0.85)), url("https://images.pexels.com/photos/36762/scarlet-honeyeater-bird-red-feathers.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")',
+        'hero-pattern': 'radial-gradient(ellipse at 75% 25%, rgba(220, 132, 164, 0.18) 0%, transparent 55%), radial-gradient(ellipse at 15% 85%, rgba(220, 132, 164, 0.1) 0%, transparent 40%), linear-gradient(135deg, #1f1d3e 0%, #2a2550 100%)',
       },
       borderRadius: {
         lg: 'var(--radius)',
