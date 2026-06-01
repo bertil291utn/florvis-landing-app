@@ -2,20 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -81,53 +67,26 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .section-padding {
-  @apply py-24 md:py-36;
+  @apply py-24 md:py-32;
 }
 
 .container-custom {
   @apply container mx-auto px-6 md:px-12 max-w-6xl;
 }
 
-.animate-on-scroll {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.animate-on-scroll.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Smooth scroll behavior */
-html {
-  scroll-behavior: smooth;
-}
-
 .btn-primary {
   @apply bg-secondary hover:bg-secondary/90 text-white font-medium py-3 px-8
-  transition-all duration-300 tracking-wide text-sm uppercase;
+  transition-colors duration-200 text-sm;
 }
 
 .btn-outline {
-  @apply border border-white/40 hover:border-white/80 text-white font-medium py-3 px-8
-  transition-all duration-300 tracking-wide text-sm uppercase backdrop-blur-sm;
-}
-
-.btn-secondary {
-  @apply bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-medium py-3 px-8
-  transition-all duration-300 border border-white/30 tracking-wide text-sm uppercase;
-}
-
-.feature-card {
-  @apply bg-white p-8 transition-all duration-500 flex flex-col h-full
-  border-t-2 border-transparent hover:border-secondary/60;
-}
-
-.dashboard-card {
-  @apply bg-white p-7 transition-all duration-300
-  border border-white/10 hover:border-secondary/40;
+  @apply border border-white/40 hover:border-white text-white font-medium py-3 px-8
+  transition-colors duration-200 text-sm;
 }
 
 .eyebrow {
@@ -136,8 +95,8 @@ html {
 
 .section-reveal {
   opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(24px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
 }
 
 .section-reveal.visible {

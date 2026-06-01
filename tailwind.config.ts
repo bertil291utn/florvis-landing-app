@@ -15,14 +15,14 @@ const config: Config = {
       },
       colors: {
         primary: {
-          DEFAULT: '#1f1d3e',
+          DEFAULT: '#2B4729',
           foreground: '#ffffff',
         },
         secondary: {
-          DEFAULT: '#dc84a4',
+          DEFAULT: '#7AAE6D',
           foreground: '#ffffff',
         },
-        cream: '#faf8f5',
+        cream: '#f7f5f1',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {
@@ -55,12 +55,6 @@ const config: Config = {
           '4': 'hsl(var(--chart-4))',
           '5': 'hsl(var(--chart-5))',
         },
-      },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'hero-pattern': 'radial-gradient(ellipse at 75% 25%, rgba(220, 132, 164, 0.18) 0%, transparent 55%), radial-gradient(ellipse at 15% 85%, rgba(220, 132, 164, 0.1) 0%, transparent 40%), linear-gradient(135deg, #1f1d3e 0%, #2a2550 100%)',
       },
       borderRadius: {
         lg: 'var(--radius)',
