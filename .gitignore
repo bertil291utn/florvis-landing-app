@@ -36,3 +36,6 @@ next-env.d.ts
 .env
 .bolt
 package-lock.json
+.claude
+.agents
+skills-lock.json
