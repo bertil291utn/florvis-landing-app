@@ -4,8 +4,13 @@ import { MessageCircle } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <section id="home" className="bg-primary min-h-screen flex items-center pt-20">
-      <div className="container-custom py-28">
+    <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('https://images.pexels.com/photos/37240013/pexels-photo-37240013.jpeg?auto=compress&cs=tinysrgb&w=1920')" }}
+      />
+      <div className="absolute inset-0 bg-black/60" />
+      <div className="relative z-10 container-custom py-28">
         <div className="max-w-3xl">
           <p className="eyebrow mb-8">Servicio de Gestión Florícola</p>
           <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-8">
@@ -35,3 +40,4 @@ export default function Hero() {
     </section>
   );
 }
+

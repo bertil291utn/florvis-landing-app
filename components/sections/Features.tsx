@@ -82,22 +82,30 @@ export default function Features() {
       <section id="features" className="bg-primary section-padding">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            <div>
-              <p className="eyebrow mb-6 section-reveal">Cómo funciona</p>
-              <h2
-                className="font-display text-4xl md:text-5xl font-bold text-white leading-tight mb-6 section-reveal"
-                style={{ transitionDelay: '100ms' }}
-              >
-                El servicio que llega directo a su WhatsApp.
-              </h2>
-              <p
-                className="text-white leading-relaxed text-sm section-reveal"
-                style={{ transitionDelay: '200ms' }}
-              >
-                Florvis no es una aplicación. Es un servicio completo de gestión agrícola
-                entregado por WhatsApp. Usted envía, nosotros analizamos y le respondemos
-                con información clara para tomar mejores decisiones sobre su finca.
-              </p>
+            <div className="relative rounded-2xl overflow-hidden min-h-[420px] lg:min-h-[520px]">
+              <img
+                src="https://images.pexels.com/photos/26524176/pexels-photo-26524176.jpeg?auto=compress&cs=tinysrgb&w=900"
+                alt="Invernadero de flores coloridas"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/40 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-8">
+                <p className="eyebrow mb-4 section-reveal">Cómo funciona</p>
+                <h2
+                  className="font-display text-3xl md:text-4xl font-bold text-white leading-tight mb-4 section-reveal"
+                  style={{ transitionDelay: '100ms' }}
+                >
+                  El servicio que llega directo a su WhatsApp.
+                </h2>
+                <p
+                  className="text-white/70 leading-relaxed text-sm section-reveal"
+                  style={{ transitionDelay: '200ms' }}
+                >
+                  Florvis no es una aplicación. Es un servicio completo de gestión agrícola
+                  entregado por WhatsApp. Usted envía, nosotros analizamos y le respondemos
+                  con información clara para tomar mejores decisiones sobre su finca.
+                </p>
+              </div>
             </div>
 
             <div className="divide-y divide-white/10">
@@ -149,15 +157,15 @@ export default function Features() {
             />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {FEATURES.map((feature, index) => (
               <div
                 key={feature.title}
-                className="border-t border-primary/10 pt-8 pb-10 px-7 section-reveal"
+                className="bg-white rounded-2xl p-7 shadow-md border border-primary/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl section-reveal"
                 style={{ transitionDelay: `${300 + index * 80}ms` }}
               >
-                <div className="mb-5">
-                  <feature.icon className="h-6 w-6 text-secondary" strokeWidth={1.5} />
+                <div className="mb-5 inline-flex items-center justify-center w-11 h-11 rounded-xl bg-secondary/10">
+                  <feature.icon className="h-5 w-5 text-secondary" strokeWidth={1.5} />
                 </div>
                 <h3 className="font-display text-xl font-semibold text-primary mb-3 leading-snug">
                   {feature.title}
