@@ -31,7 +31,7 @@ export default function Navbar() {
     >
       <div className="container-custom flex justify-between items-center">
         <Link href="#home" className="flex items-center gap-3">
-          <Image src="/logo.png" alt="Florvis Logo" width={32} height={32} className="h-8 w-8" />
+          <Image src="/favicon.ico" alt="Florvis Logo" width={32} height={32} className="h-8 w-8" />
           <span className="text-xl font-display font-semibold text-white tracking-wide">Florvis</span>
         </Link>
 
